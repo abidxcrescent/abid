@@ -82,7 +82,8 @@ public class UserController {
 
     @PostMapping("/saveUser")
     public ResponseEntity<String> getUsers(){
-        return ResponseEntity.status(HttpStatus.CREATED).body("Users created");
+//        return ResponseEntity.status(HttpStatus.CREATED).body("Users created");
+        return  ResponseEntity.status(HttpStatus.CREATED).body("saved user");
     }
 
 
