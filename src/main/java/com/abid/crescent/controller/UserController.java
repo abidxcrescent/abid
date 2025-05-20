@@ -1,6 +1,9 @@
 package com.abid.crescent.controller;
 
+import com.abid.crescent.dto.User;
 import com.abid.crescent.filters.FirstNamePropertyEditor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.DataBinder;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
@@ -56,6 +59,30 @@ public class UserController {
                            @PathVariable (name = "lastName") String lastName,
                            @PathVariable (name = "age") int age) {
         return "True";
+    }
+
+    // 3. @RequestBody
+    /*
+        Spring boot internally uses GSON or Jackson to bind the json to
+        Java object User.
+     */
+    @PostMapping(value = "/saveUser")
+    public String saveUser(@RequestBody User user) {
+        return "saved user";
+    }
+
+    // 4. ResponseEntity
+
+    /*
+        ResponseEntity consists of:
+        a. header
+        b. status
+        c. body
+     */
+
+    @PostMapping("/saveUser")
+    public ResponseEntity<String> getUsers(){
+        return ResponseEntity.status(HttpStatus.CREATED).body("Users created");
     }
 
 
