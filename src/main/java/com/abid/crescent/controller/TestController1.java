@@ -7,6 +7,17 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/*
+    This along with TestController1 and User demonstrate
+    the single scope beans.
+
+    Singleton bean:
+
+    1. Default scope
+    2. Only 1 instance per IOC
+    3. Eager initialization
+
+ */
 @RestController
 @RequestMapping("/api")
 @Scope(value = ConfigurableBeanFactory.SCOPE_SINGLETON)
