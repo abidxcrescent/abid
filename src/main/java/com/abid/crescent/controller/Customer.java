@@ -1,5 +1,6 @@
 package com.abid.crescent.controller;
 
+import com.abid.crescent.databaseconnection.DataBaseConnection;
 import com.abid.crescent.dto.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -35,5 +36,19 @@ public class Customer {
     //@Qualifier("OfflineOrder")
     @Autowired
     Order order;
+
+    /*
+        There is an interface DataBaseConnection which has 2 implementations:
+        a. SQLConnection
+        b. NoSQLConnection
+        both of them are beans, we are controlling the creation of both beans
+        using @ConditionalOnProperty annotation which takes value from
+        application.properties.
+     */
+    @Autowired(required=false)
+    DataBaseConnection dataBaseConnection;
+
+
+
 
 }
