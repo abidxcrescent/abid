@@ -45,7 +45,7 @@ public class Customer {
         using @ConditionalOnProperty annotation which takes value from
         application.properties.
      */
-    @Autowired(required=false)
+    @Autowired
     DataBaseConnection dataBaseConnection;
 
 
